@@ -7,7 +7,7 @@ const { Client } = require("discord.js");
 const client = new Client();
 const PREFIX = "$";
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+client.login(DISCORD_BOT_TOKEN);
 
 client.on("message", async message => {
   if (message.author.bot) return;
@@ -43,6 +43,13 @@ client.on("message", async message => {
         );
       }
     }
+  }
+});
+
+client.on("message", async message => {
+  if (message.author.bot) return;
+  if (message.content === "$loltime") {
+    message.channel.send("haha here's ur random joke");
   }
 });
 
